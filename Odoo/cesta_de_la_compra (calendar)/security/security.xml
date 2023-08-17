@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+<record id="cesta_de_la_compra.module.categori" model="ir.module.category">
+<field name="name">nomGrup</field>
+<field name="description">Helps you manage your school</field>
+<field name="sequence">107</field>
+</record>
+<record id="group1_cesta_de_la_compra" model="res.groups">
+<field name="name">grupo1</field>
+<field name="category_id" ref="cesta_de_la_compra.module.categori"/>
+<field name="users" eval="[(4,ref('base.user_admin'))]"/>
+</record>
+<record id="group2_cesta_de_la_compra" model="res.groups">
+<field name="name">grupo2</field>
+<field name="category_id" ref="cesta_de_la_compra.module.categori"/>
+
+</record>
+<record id="idUser" model="res.users">
+<!-- Inclusió d’usuaris en el grup -->
+</record>
+<record id="idRegla" model="ir.rule">
+<!-- Definició de regles de negoci i assignació
+a grups i/o companyies -->
+</record>
+    </data>
+</odoo>

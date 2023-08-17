@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="herencia_modulo1.list">
+      <field name="name">herencia_modulo1 list</field>
+      <field name="model">herencia_modulo1.herencia_modulo1</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="herencia_modulo1.action_window">
+      <field name="name">herencia_modulo1 window</field>
+      <field name="res_model">herencia_modulo1.herencia_modulo1</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="herencia_modulo1.action_server">
+      <field name="name">herencia_modulo1 server</field>
+      <field name="model_id" ref="model_herencia_modulo1_herencia_modulo1"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="herencia_modulo1" id="herencia_modulo1.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="herencia_modulo1.menu_1" parent="herencia_modulo1.menu_root"/>
+    <menuitem name="Menu 2" id="herencia_modulo1.menu_2" parent="herencia_modulo1.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="herencia_modulo1.menu_1_list" parent="herencia_modulo1.menu_1"
+              action="herencia_modulo1.action_window"/>
+    <menuitem name="Server to list" id="herencia_modulo1" parent="herencia_modulo1.menu_2"
+              action="herencia_modulo1.action_server"/>
+-->
+  </data>
+</odoo>

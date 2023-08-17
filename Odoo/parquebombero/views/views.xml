@@ -1,0 +1,85 @@
+<odoo>
+  <data>
+     <!-- Parque VIEW -->
+
+    <record model="ir.ui.view" id="parquebombero_list">
+      <field name="name">parquebombero list</field>
+      <field name="model">parquebombero.parquebombero</field>
+      <field name="arch" type="xml">
+        <tree string="Parque">
+             <field name="nombre"/>
+             <field name="direccion"/>
+             <field name="numero"/>
+             <field name="direccion"/>
+             <field name="telefono"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views parque -->
+
+    <record model="ir.actions.act_window" id="parquebombero.parquebombero_action_window">
+      <field name="name">parquebombero window</field>
+      <field name="res_model">parquebombero.parquebombero</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <!--  Bombero VIEW-->
+        <record id="bombero_list" model="ir.ui.view">
+            <field name="name">Bomberos list </field>
+            <field name="model">bombero.bombero</field>
+            <field name="arch" type="xml">
+                <form string="Bombero">
+                    <field name="nombre"/>
+                    <field name="edad"/>
+                    <field name="numero"/>
+                    <!--<button name="method" string="Acción" class="oe_highlight" type="object"/>-->
+                </form> <!--form -->
+            </field>
+        </record>
+
+        <!-- Acción para abrir vistas de Bombero -->
+        <record model="ir.actions.act_window" id="bombero.bombero_action_window">
+            <field name="name">Bombero</field>
+            <field name="res_model">bombero.bombero</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+  <!-- Camion VIEW -->
+
+    <record model="ir.ui.view" id="camion_list">
+      <field name="name">camion list</field>
+      <field name="model">camion.camion</field>
+      <field name="arch" type="xml">
+        <tree string="Camion">
+          <field name="numero"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views camion -->
+
+    <record model="ir.actions.act_window" id="camion.camion_action_window">
+      <field name="name">camion window</field>
+      <field name="res_model">camion.camion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+    <!-- Top menu item -->
+
+ <menuitem name="parquebombero" id="parquebombero_menu_root"/>
+
+    <!-- menu categories -->
+ <menuitem name="Parque" id="parque_menu_events" parent="parque.menu_root" action="parquebombero.parquebombero_action_window"/>
+ <menuitem name="Bombero" id="bombero_menu_events" parent="parque.menu_root" action="bombero.bombero_action_window" />
+ <menuitem name="Camion" id="camion_menu_events" parent="parque.menu_root" action="camion.camion_action_window" />
+
+  </data>
+</odoo>

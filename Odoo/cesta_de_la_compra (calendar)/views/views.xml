@@ -1,0 +1,127 @@
+<odoo>
+    <data>
+           <!--  vistas arbol del Inventario-->
+        <record id="view_cesta_de_la_compra_inventario_tree" model="ir.ui.view">
+            <field name="name">view_cesta_de_la_compra_inventario_tree</field>
+            <field name="model">cesta_de_la_compra.inventario</field>
+            <field name="arch" type="xml">
+                <tree string="inventario" default_order = "precioUnidad">
+                    <field name="name"/>
+                    <field name="cantidad"/>
+                    <field name="tipoPro"/>
+                    <field name="precioUnidad"/>
+                    <field name="compra_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <!-- Acción para abrir vistas del Inventario-->
+        <record model="ir.actions.act_window" id="cesta_de_la_compra_inventario">
+            <field name="name">inventario</field>
+            <field name="res_model">cesta_de_la_compra.inventario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+           <!-- vistas form del comprador-->
+
+          <record id="view_cesta_de_la_compra_comprador_form" model="ir.ui.view">
+            <field name="name">view_cesta_de_la_compra_comprador_form</field>
+            <field name="model">cesta_de_la_compra.comprador</field>
+            <field name="arch" type="xml">
+                <form string="comprador">
+                   <field name="name"/>
+                    <field name="apellido1"/>
+                    <field name="apellido2"/>
+                    <field name="direccion"/>
+                    <field name="country_id"/>
+                    <field name="dinero_a_cuenta"/>
+                    <field name="nif"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="tutor_nif"/>
+                    <field name="mayor_de_edad"/>
+                    <field name="edad"/>
+                    <field name="dinero_gastado"/>
+                     <field name="compra_ids"/>
+                    <!--<button name="method" string="Acción" class="oe_highlight" type="object"/>-->
+                </form> <!--form -->
+            </field>
+        </record>
+
+        <!-- Acción para abrir vistas de comprador -->
+        <record model="ir.actions.act_window" id="cesta_de_la_compra_comprador">
+            <field name="name">comprador</field>
+            <field name="res_model">cesta_de_la_compra.comprador</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="view_cesta_de_la_compra_compra_tree" model="ir.ui.view">
+            <field name="name">cesta_de_la_compra_compra_tree</field>
+            <field name="model">cesta_de_la_compra.compra</field>
+            <field name="arch" type="xml">
+                <tree string="compra" default_order = "comprador_id,fecha_compra">
+                    <field name="name"/>
+                    <field name="cantidad_comprada"/>
+                    <field name="fecha_compra"/>
+                    <field name="comprador_id"/>
+                    <field name="inventario_id"/>
+                    <field name="forma_pago"/>
+                    <field name="dinero_disponible"/>
+                </tree>
+           </field>
+        </record>
+
+          <!-- Vista calendar -->
+   <record id="view_cesta_de_la_compra_compra_calendar" model="ir.ui.view">
+    <field name="name">view.cesta_de_la_compra.compra.calendar</field>
+    <field name="model">cesta_de_la_compra.compra</field>
+    <field name="arch" type="xml">
+        <calendar string="Compras" date_start="fecha_compra" color="comprador_id.name">
+             <field name="name"/>
+             <field name="cantidad_comprada"/>
+             <field name="fecha_compra"/>
+        </calendar>
+    </field>
+</record>
+        <!-- Acción para abrir vistas de los modelos -->
+        <record model="ir.actions.act_window" id="cesta_de_la_compra_compra">
+            <field name="name">compra</field>
+            <field name="res_model">cesta_de_la_compra.compra</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="cesta_de_la_compra.action_server">
+              <field name="name">cestaDeLaCompra server</field>
+              <field name="model_id" ref="model_cesta_de_la_compra_cesta_de_la_compra"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+
+
+
+        -->
+
+        <menuitem name="cesta calendar" id="odoo_model_cesta_de_la_compra_menu_root"/>
+
+        <!-- Categorías de menú -->
+        <menuitem name="Compra" id="odoo_model_practica4_menu_1" parent="odoo_model_cesta_de_la_compra_menu_root"   action="cesta_de_la_compra_compra"/>
+        <menuitem name="Inventario" id="odoo_model_practica4_menu_2" parent="odoo_model_cesta_de_la_compra_menu_root" action="cesta_de_la_compra_inventario"/>
+        <menuitem name="Comprador" id="odoo_model_practica4_menu_3" parent="odoo_model_cesta_de_la_compra_menu_root"  action="cesta_de_la_compra_comprador"/>
+
+
+    </data>
+</odoo>

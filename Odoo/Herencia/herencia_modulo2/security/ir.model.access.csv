@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_herencia_modulo2_herencia_modulo2,herencia_modulo2.herencia_modulo2,model_herencia_modulo2_herencia_modulo2,base.group_user,1,1,1,1
